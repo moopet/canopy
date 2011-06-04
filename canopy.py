@@ -63,5 +63,3 @@ class ForrstAPI():
 
     def post_comments(self, data={}, authenticate=False):
         return self.call_api('post/comments', data=data, authenticate=authenticate)
-
-
