@@ -6,8 +6,6 @@ from urllib import urlencode
 from urllib2 import urlopen
 from simplejson import loads
 
-version_info = (0, 2)
-__version__ = ".".join(map(str, version_info))
 FORRST_API_ENDPOINT = "api.forrst.com/api/v2"
 
 
