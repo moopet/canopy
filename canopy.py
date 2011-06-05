@@ -5,10 +5,12 @@ http://forrst.com/api
 """
 
 from urllib import urlencode
-from urllib2 import urlopen
+from urllib2 import build_opener
 from simplejson import load
 
+version = '0.1'
 FORRST_API_ENDPOINT = "api.forrst.com/api/v2"
+USER_AGENT = "canopy v%s" % version
 
 
 class ForrstAPIError(Exception):
@@ -43,7 +45,9 @@ class ForrstAPI():
         url = "%s://%s/%s" % (protocol, FORRST_API_ENDPOINT, method)
         if data:
             url += "?%s" % urlencode(data)
-        response = load(urlopen(url))
+        opener = build_opener()
+        opener.addheaders = [('User-agent', USER_AGENT)]
+        response = load(opener.open(url))
         if authenticate and response.get('authed') == 'false':
             raise ForrstAPIError('authentication failure')
         if response.get('stat') == 'ok':
