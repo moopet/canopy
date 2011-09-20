@@ -23,7 +23,7 @@ setup(
 	classifiers = [
 		'Development Status :: 1 - Started',
 		'Intended Audience :: Developers',
-		'License :: OSI Approved :: Unknown',
+		'License :: OSI Approved :: MIT License',
 		'Topic :: Internet'
 	]
 )
